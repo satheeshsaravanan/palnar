@@ -7,8 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
  
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
  
  
@@ -16,8 +14,6 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    UserComponent,
-    AdminComponent,
     LoginComponent
   ],
   imports: [
@@ -27,9 +23,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
   ],
   entryComponents: [
-    LoginComponent,
-    UserComponent,
-    AdminComponent
+    LoginComponent
   ],
   providers: [BnNgIdleService],
   bootstrap: [AppComponent]

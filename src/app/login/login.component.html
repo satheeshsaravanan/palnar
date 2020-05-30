@@ -5,7 +5,7 @@
       <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.userName.errors }">
           <label> User Name</label>
-          <input type="text" placeholder="User Name" formControlName="userName">
+          <input type="text" placeholder="User Name is palnar" formControlName="userName" (ngModelChange)="isValidCredentialReset()">
         </p>
     
         <div *ngIf="isSubmitted && formControls.userName.errors" class="alert alert-info" role="alert">
@@ -14,7 +14,7 @@
     
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
           <label> Password</label>
-          <input type="password" placeholder="Password" formControlName="password">
+          <input type="password" placeholder="credential is password" formControlName="password" (ngModelChange)="isValidCredentialReset()">
         </p>
     
         <div *ngIf="isSubmitted && formControls.password.errors" class="alert alert-info" role="alert">

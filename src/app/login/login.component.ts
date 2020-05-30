@@ -46,6 +46,10 @@ export class LoginComponent implements OnInit {
     this.navbarService.updateLoginStatus(true);
   }
 
+  isValidCredentialReset() {
+    this.isValidCredentials = false;
+  }
+
   login(){
     this.isSubmitted = true;
     if(this.loginForm.invalid){

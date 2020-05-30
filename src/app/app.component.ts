@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarService } from './services/navbar.service';
 import { BnNgIdleService } from 'bn-ng-idle';
+import { HomeComponent } from './home/home.component';
  
 @Component({
   selector: 'app-root',
@@ -19,10 +18,9 @@ export class AppComponent implements OnInit {
   constructor(private bnIdle: BnNgIdleService, private router: Router, private navbarService: NavbarService) { 
     this.router.config.unshift(
       { path: 'login', component: LoginComponent },
-      { path: 'user', component: UserComponent },
-      { path: 'admin', component: AdminComponent },
+      { path: 'home', component:  HomeComponent},
     );
-    this.bnIdle.startWatching(50).subscribe((sessionExpired) => {
+    this.bnIdle.startWatching(500).subscribe((sessionExpired) => {
       if(sessionExpired) {
         this.navbarService.updateLoginStatus(false);
         this.navbarService.getLoginStatus().subscribe(status => this.isLoggedIn = status);

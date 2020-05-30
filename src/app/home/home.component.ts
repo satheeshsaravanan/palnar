@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserComponent } from '../user/user.component';
-import { AdminComponent } from '../admin/admin.component';
 import { LoginComponent } from '../login/login.component';
 import { NavbarService } from '../services/navbar.service';
 
@@ -16,11 +14,6 @@ export class HomeComponent implements OnInit {
   isLoggedIn = false;
  
   constructor(private router: Router, private navbarService: NavbarService) {
-    this.router.config.unshift(
-      { path: 'login', component: LoginComponent },
-      { path: 'user', component: UserComponent },
-      { path: 'admin', component: AdminComponent },
-    );
   }
  
   ngOnInit() {

@@ -8,9 +8,38 @@ export class NavbarService {
  
   private links = new Array<{ text: string, path: string }>();
   private isLoggedIn = new Subject<boolean>();
+
+  private sideNavRoutingLink = [
+    {
+      itemId: 0,
+      itemLabel: 'Item 1'
+    }, {
+      itemId: 1,
+      itemLabel: 'Item 2'
+    },{
+      itemId: 2,
+      itemLabel: 'Item 3'
+    },{
+      itemId: 3,
+      itemLabel: 'Item 4'
+    },{
+      itemId: 4,
+      itemLabel: 'Item 5'
+    }, {
+      itemId: 5,
+      itemLabel: 'Item 6'
+    },{
+      itemId: 6,
+      itemLabel: 'Item 7'
+    },{
+      itemId: 7,
+      itemLabel: 'Item 8'
+    }];
  
   constructor() {
-    this.addItem({ text: 'Login', path: 'login' });
+    this.sideNavRoutingLink.forEach(link => {
+      this.addItem({ text: link.itemLabel, path: link.itemId });
+    })
     this.isLoggedIn.next(false);
   }
  
@@ -24,21 +53,10 @@ export class NavbarService {
  
   updateLoginStatus(status: boolean) {
     this.isLoggedIn.next(status);
- 
-    if (!status) {
-      this.clearAllItems();
-      this.addItem({ text: 'Login', path: 'login' });
-    }
   }
  
   updateNavAfterAuth(role: string): void {
     this.removeItem({ text: 'Login' });
- 
-    if (role === 'user') {
-      this.addItem({ text: 'User Board', path: 'user' });
-    } else if (role === 'admin') {
-      this.addItem({ text: 'Admin Board', path: 'admin' });
-    }
   }
  
   addItem({ text, path }) {
