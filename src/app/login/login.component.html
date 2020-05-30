@@ -1,0 +1,35 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  </div>
+  <ng-template #loggedOut>
+    <div class="login">
+      <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.userName.errors }">
+          <label> User Name</label>
+          <input type="text" placeholder="User Name" formControlName="userName">
+        </p>
+    
+        <div *ngIf="isSubmitted && formControls.userName.errors" class="alert alert-info" role="alert">
+          <div *ngIf="formControls.userName.errors.required">User Name is required</div>
+        </div>
+    
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+          <label> Password</label>
+          <input type="password" placeholder="Password" formControlName="password">
+        </p>
+    
+        <div *ngIf="isSubmitted && formControls.password.errors" class="alert alert-info" role="alert">
+          <div *ngIf="formControls.password.errors.required">Password is required</div>
+        </div>
+
+        <div *ngIf="isValidCredentials" class="alert alert-danger" role="alert">
+          <div>Please provide valid user name and password.</div>
+        </div>
+        <p>
+          <input type="submit" value="Log in">
+        </p>
+        
+      </form>
+    </div>
+  </ng-template>
+
+  

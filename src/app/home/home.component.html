@@ -1,0 +1,10 @@
+<nav class="navbar navbar-inverse">
+      <ul class="nav navbar-nav" routerLinkActive="active">
+        <li class="nav-item" *ngFor="let link of links">
+          <a class="nav-link" [routerLink]="link.path">{{ link.text }}</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="logout" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+  </nav>
