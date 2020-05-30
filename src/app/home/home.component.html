@@ -1,10 +1,18 @@
-<nav class="navbar navbar-inverse">
-      <ul class="nav navbar-nav" routerLinkActive="active">
-        <li class="nav-item" *ngFor="let link of links">
-          <a class="nav-link" [routerLink]="link.path">{{ link.text }}</a>
-        </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink="logout" (click)="logout()">Logout</a>
-        </li>
-      </ul>
-  </nav>
+<div class="row">
+    <div class="col-2">
+        <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav" routerLinkActive="active">
+              <li class="nav-item" *ngFor="let link of links">
+                <a class="nav-link" [routerLink]="link.path">{{ link.text }}</a>
+              </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-6">
+        <div class="container">
+            <p class="center-class">
+                Welcome to the test application, you can click on the link on the left side bar.
+            </p>
+        </div>
+    </div>
+  </div>

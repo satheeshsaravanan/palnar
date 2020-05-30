@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { NavbarService } from '../services/navbar.service';
+import { ItemDetailsComponent } from '../item-details/item-details.component';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,11 @@ export class HomeComponent implements OnInit {
   isLoggedIn = false;
  
   constructor(private router: Router, private navbarService: NavbarService) {
+    this.router.config.unshift(
+      { path: 'login', component: LoginComponent },
+      { path: 'home', component:  HomeComponent},
+      { path: 'home/:id', component: ItemDetailsComponent },
+    );
   }
  
   ngOnInit() {

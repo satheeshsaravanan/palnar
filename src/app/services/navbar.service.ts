@@ -11,29 +11,17 @@ export class NavbarService {
 
   private sideNavRoutingLink = [
     {
-      itemId: 0,
+      itemId: 1,
       itemLabel: 'Item 1'
     }, {
-      itemId: 1,
+      itemId: 2,
       itemLabel: 'Item 2'
     },{
-      itemId: 2,
+      itemId: 3,
       itemLabel: 'Item 3'
     },{
-      itemId: 3,
-      itemLabel: 'Item 4'
-    },{
       itemId: 4,
-      itemLabel: 'Item 5'
-    }, {
-      itemId: 5,
-      itemLabel: 'Item 6'
-    },{
-      itemId: 6,
-      itemLabel: 'Item 7'
-    },{
-      itemId: 7,
-      itemLabel: 'Item 8'
+      itemLabel: 'Item 4'
     }];
  
   constructor() {
